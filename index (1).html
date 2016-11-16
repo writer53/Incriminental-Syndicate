@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<script>
+function clickCountertotal() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("resulttotal").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+    } else {
+        document.getElementById("resulttotal").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+
+function clickCountersession() {
+    if(typeof(Storage) !== "undefined") {
+        if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+        } else {
+            sessionStorage.clickcount = 1;
+        }
+        document.getElementById("resultsession").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+    } else {
+        document.getElementById("resultsession").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+</script>
+		<link rel="stylesheet" type="text/css" href="interface.css" />
+		<style>
+body {background-color: tan;}
+h1   {color: white;}
+h2   {color: brown;}
+h3	 {color: white;}
+h4   {color: white;}
+p    {color: black;} 
+
+h4 {
+    border: 1px solid brown;
+    padding: 20px;
+}
+	header {
+    padding: 1em;
+    color: white;
+    background-color: brown;
+    clear: left;
+    text-align: center;
+	}
+	</style>
+	</head>
+	<title>Incriminental Syndicate</title>
+	
+	<body>
+
+<header>
+  <h1><b>Incriminental Syndicate</b></h1>
+<h2 style="color:black;">An idle Mafia game.</h2>
+<img src="notor.png" width="142" height="142">
+<p style="color:black;">Indev Version 0.0.6 - by Writer Leto<p>
+<h3>A game so broken it's criminal!</p>
+</header>
+
+<hr>
+<h2>Clickables</h3>
+<h3>Lire</h3>
+<p>The lira (lire plural) was the currency of Italy between 1861 and 2002.</p>
+		<br />
+		<p><button onclick="lireClick(1);clickCountertotal();clickCountersession();"type="button">Print Lire
+		<br />
+		<img src="lire.png" width="46" height="46">
+		<br />
+		Lire: <span id="lire">0</span>
+		<br />
+		<div id="resulttotal">
+		<br />
+		<div id="resultsession"></div></button></p>
+<hr>
+<h2>Members</h2>
+<h3>Picciotto</h3>
+<p>"The first level of the formal Mafia hierarchy, picciotti are younger and more inexperienced soldatos, and usually preform simpler tasks like beatings and robbery. Makes 1 lira a second."</p>
+		<button onclick="buyPic()">Hire Picciotto</button>
+		<br />
+		Picciotti: <span id="picciotti">0</span>
+		<br />
+		Picciotto Cost: <span id="PicCost">25</span>
+
+<h3>Soldato</h3>
+<p>"After proving himself and taking the oath of Omerta, Soldatos become an official member of the family. The muscle and main money collectors of the family, Soldatos serve loyally for life. Makes 5 lire a second.""</p>
+		<button onclick="buySol()">Hire Soldato</button>
+		<br />
+		Soldatos: <span id="soldatos">0</span>
+		<br />
+		Soldato Cost: <span id="SolCost">100</span>
+<hr>
+<h2>Map of Sicily</h2>
+<p>Notice: Map will be much better later in development, Only Trapani and Palermo kinda work right now.</p>
+<!-- Rectangle: 1st digit controls left line of rectangle, 2nd digit controls top line, 3rd digit controls right line, and 4th digit controls bottom line. -->
+<!-- Circle: 1st digit controls horizontal placement, 2nd digit controls vertical placement, 3rd digit controls area size in pixels -->
+<img src="maponealt.png" alt="Sicily" usemap="#sicilymap" style="width:496px;height:363px;">
+<map name="sicilymap">
+  <area shape="rect" coords="63,100,137,219" alt="Trapani" href="trapani.html" target="iframe_a">
+  <area shape="rect" coords="138,124,288,200" alt="Palermo" href="palermo.html" target="iframe_a">
+  <area shape="rect" coords="361,222,424,341" alt="Syracuse" href="syracuse.html">
+</map>
+<br />
+<iframe height="350px" width="100%" src="unavaliable.png" name="iframe_a" style="border:none;"></iframe>
+
+if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+} else {
+    // Sorry! No Web Storage support..
+}
+<hr>
+<h2>Update Log</h2>
+<h4 >11/11/2016 Friday 0.0.6 - Added a map of Sicily that took way too long to make and isn't even useful right now. Also tried to make the interface look better.</p>
+<h4 >11/11/2016 Friday 0.0.5 - Spent half an hour trying to fix a bug in java before realizing I just had no idea how to spell picciotto. Also added some pretty colors.</p>
+<h4 >11/10/2016 Thursday 0.0.4 - Tried to make a save option but sucked too much and made the soldato instead.</p>
+<h4 >11/10/2016 Thursday 0.0.3 - Gave up trying to make buildings and shamelessly copy pasted code from a tutorial, but I added flavor text so that's okay.</p>
+<h4 >11/9/2016 Wednsday 0.0.2 - Added the option to click a button to increase a number. Already better then most idle games.</p>
+<h4 >11/9/2016 Wednsday 0.0.1 - Gave up idle game maker because it sucked and attempted to code. Failed miserably.</p>
+
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
